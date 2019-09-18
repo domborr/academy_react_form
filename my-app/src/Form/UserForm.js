@@ -12,38 +12,27 @@ export default class UserForm extends React.Component {
     isValid: false
   };
 
-  formValidation = new FormValidation();
   service = new Services();
+  formValidation = new FormValidation();
 
-   checkFormFields(){
-      return (this.state.name!=="" &&
-      this.state.lastname!=="" &&
-      this.state.age!=="") ? true : false;
-     
-  }
-
- 
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
     if (
-      this.formValidation.validateString(event.target.value) &&
-      this.checkFormFields
+      this.formValidation.validateString(event.target.value)     
     ) {
       this.state.isValid = true;
     } else {
       this.state.isValid = false;
     }
-    console.log(this.checkFormFields());
-    console.log(this.state.isValid);
   };
 
   onSubmit = event => {
     event.preventDefault();
     let user = new User(this.state.name, this.state.lastname, this.state.age);
     console.log(user);
-    this.service.exportToJson(JSON.stringify(user, null, 2));    
+    this.service.exportToJson(JSON.stringify(user));
   };
 
   render() {
@@ -53,6 +42,7 @@ export default class UserForm extends React.Component {
           <FormGroup>
             <Label for="name">Name</Label>
             <Input
+              required
               onChange={this.onChange}
               value={this.state.name}
               type="text"
@@ -62,6 +52,7 @@ export default class UserForm extends React.Component {
             />
             <Label for="lastname">Lastname</Label>
             <Input
+              required
               onChange={this.onChange}
               value={this.state.lastname}
               type="text"
@@ -73,6 +64,7 @@ export default class UserForm extends React.Component {
           <FormGroup>
             <Label for="age">Age</Label>
             <Input
+              required
               onChange={this.onChange}
               value={this.state.age}
               type="number"
@@ -82,7 +74,7 @@ export default class UserForm extends React.Component {
               min="1"
             />
           </FormGroup>
-          <Button>Submit</Button>
+          <Button disabled={!this.state.isValid && !Form.isValid}>Submit</Button>
         </Form>
       </Container>
     );
