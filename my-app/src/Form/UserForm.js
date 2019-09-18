@@ -2,13 +2,29 @@ import React from "react";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { User } from "../Models/User";
 import Services from "../Services/Services";
+import LocalizedStrings from "react-localization";
 
 export default class UserForm extends React.Component {
   state = {
     name: "",
     lastname: "",
-    age: "",
+    age: ""
   };
+
+  strings = new LocalizedStrings({
+    en: {
+      name: "Name",
+      lastname: "Lastname",
+      age: "Age",
+      button: "Submit"
+    },
+    it: {
+      name: "Nome",
+      lastname: "Cognome",
+      age: "Età",
+      button: "Invia"
+    }
+  });
 
   service = new Services();
 
@@ -30,7 +46,7 @@ export default class UserForm extends React.Component {
       <Container>
         <Form onSubmit={this.onSubmit}>
           <FormGroup>
-            <Label for="name">Name</Label>
+            <Label for="name">{this.strings.name}</Label>
             <Input
               required
               onChange={this.onChange}
@@ -38,9 +54,9 @@ export default class UserForm extends React.Component {
               type="text"
               name="name"
               id="name"
-              placeholder="Name"
+              placeholder="John"
             />
-            <Label for="lastname">Lastname</Label>
+            <Label for="lastname">{this.strings.lastname}</Label>
             <Input
               required
               onChange={this.onChange}
@@ -48,11 +64,11 @@ export default class UserForm extends React.Component {
               type="text"
               name="lastname"
               id="lastname"
-              placeholder="Lastname"
+              placeholder="Smith"
             />
           </FormGroup>
           <FormGroup>
-            <Label for="age">Age</Label>
+            <Label for="age">{this.strings.age}</Label>
             <Input
               required
               onChange={this.onChange}
@@ -64,7 +80,7 @@ export default class UserForm extends React.Component {
               min="1"
             />
           </FormGroup>
-          <Button>Submit</Button>
+          <Button>{this.strings.button}</Button>
         </Form>
       </Container>
     );
