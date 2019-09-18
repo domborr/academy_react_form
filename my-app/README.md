@@ -66,3 +66,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+To convert language files from .po to .jsno use command:
+npx ttag po2json i18n/<language_code>.po > i18n/<language_code>.po.json;
+
+To get browser's language use this command:
+var userLang = navigator.language || navigator.userLanguage; 
