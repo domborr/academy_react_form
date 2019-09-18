@@ -64,7 +64,7 @@ export default class UserForm extends React.Component {
               min="1"
             />
           </FormGroup>
-          <Button disabled={}>Submit</Button>
+          <Button>Submit</Button>
         </Form>
       </Container>
     );
