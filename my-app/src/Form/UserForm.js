@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { User } from "../Models/User";
-import FormValidation from "./FormValidation";
 import Services from "../Services/Services";
 
 export default class UserForm extends React.Component {
@@ -9,23 +8,14 @@ export default class UserForm extends React.Component {
     name: "",
     lastname: "",
     age: "",
-    isValid: false
   };
 
   service = new Services();
-  formValidation = new FormValidation();
 
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
-    if (
-      this.formValidation.validateString(event.target.value)     
-    ) {
-      this.state.isValid = true;
-    } else {
-      this.state.isValid = false;
-    }
   };
 
   onSubmit = event => {
@@ -74,7 +64,7 @@ export default class UserForm extends React.Component {
               min="1"
             />
           </FormGroup>
-          <Button disabled={!this.state.isValid && !Form.isValid}>Submit</Button>
+          <Button disabled={}>Submit</Button>
         </Form>
       </Container>
     );
