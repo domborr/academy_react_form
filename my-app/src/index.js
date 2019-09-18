@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import UserForm from './Form/UserForm';
+import './i18nInit';
 
 ReactDOM.render(<UserForm />, document.getElementById('root'));
 

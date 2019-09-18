@@ -2,7 +2,8 @@ import React from "react";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { User } from "../Models/User";
 import Services from "../Services/Services";
-import LocalizedStrings from "react-localization";
+import { t } from 'ttag'
+//import LocalizedStrings from "react-localization";
 
 export default class UserForm extends React.Component {
   state = {
@@ -11,20 +12,20 @@ export default class UserForm extends React.Component {
     age: ""
   };
 
-  strings = new LocalizedStrings({
-    en: {
-      name: "Name",
-      lastname: "Lastname",
-      age: "Age",
-      button: "Submit"
-    },
-    it: {
-      name: "Nome",
-      lastname: "Cognome",
-      age: "Età",
-      button: "Invia"
-    }
-  });
+  // strings = new LocalizedStrings({
+  //   en: {
+  //     name: "Name",
+  //     lastname: "Lastname",
+  //     age: "Age",
+  //     button: "Submit"
+  //   },
+  //   it: {
+  //     name: "Nome",
+  //     lastname: "Cognome",
+  //     age: "Età",
+  //     button: "Invia"
+  //   }
+  // });
 
   service = new Services();
 
@@ -46,7 +47,7 @@ export default class UserForm extends React.Component {
       <Container>
         <Form onSubmit={this.onSubmit}>
           <FormGroup>
-            <Label for="name">{this.strings.name}</Label>
+            <Label for="name">{t`Name`}</Label>
             <Input
               required
               onChange={this.onChange}
@@ -56,7 +57,7 @@ export default class UserForm extends React.Component {
               id="name"
               placeholder="John"
             />
-            <Label for="lastname">{this.strings.lastname}</Label>
+            <Label for="lastname">{t`Lastname`}</Label>
             <Input
               required
               onChange={this.onChange}
@@ -68,7 +69,7 @@ export default class UserForm extends React.Component {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="age">{this.strings.age}</Label>
+            <Label for="age">{t`Age`}</Label>
             <Input
               required
               onChange={this.onChange}
@@ -80,7 +81,7 @@ export default class UserForm extends React.Component {
               min="1"
             />
           </FormGroup>
-          <Button>{this.strings.button}</Button>
+          <Button>{t`Submit`}</Button>
         </Form>
       </Container>
     );
