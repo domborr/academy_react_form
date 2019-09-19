@@ -8,14 +8,14 @@ import AppSettingsModel, { Banner, AppSettings } from "../Models/AppSettingsMode
 
 export default class InsertForm extends React.Component {
   state = {
-    base_url:"",pages_path:"",layout_path:"",events_path:"",
+    base_url:"",pages_path:"",layout_path:"",laucher_path:"",events_path:"",
     epg:"",vod:"",linearAdv:"",videoAdv:"",
     broadcastVideoElement:"",carouselId:"",streamEventObject:"",
     lancher:"",events:"",
     linearAdvEnabled:false,videoAdvEnabled:false,preroll:false,midroll:false,postroll:false,linearAdvApplication:"",
     cornerBannerCampaignId:"",cornerBannerStreamEvent:"",
     lsShapeBannerCampaignId:"",lsShapeBannerStreamEvent:"",
-    stripeBannerCampaignId:"",stripeBannerStreamEvent:"",
+    stripeBannerCampaignId:"",stripeBannerStreamEvent:""
   };
 
   // strings = new LocalizedStrings({
@@ -39,6 +39,9 @@ export default class InsertForm extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+
+// this.setState( prevState => {  return {} } )
+
   };
 
   onSubmit = event => {
@@ -52,41 +55,101 @@ export default class InsertForm extends React.Component {
     return (
       <Container>
         <Form onSubmit={this.onSubmit}>
-          <FormGroup>
-            <Label for="name">{t`Name`}</Label>
+          <FormGroup name="AppSettings"> 
+            <Label for="base_url">{t`base_url`}</Label>
             <Input
               required
               onChange={this.onChange}
-              value={this.state.name}
+              value={this.state.base_url}
               type="text"
-              name="name"
-              id="name"
-              placeholder="John"
+              name="base_url"
+              id="base_url"
+              placeholder="Insert base url"
             />
-            <Label for="lastname">{t`Lastname`}</Label>
+            <Label for="pages_path">{t`Pages Path`}</Label>
             <Input
               required
               onChange={this.onChange}
-              value={this.state.lastname}
+              value={this.state.pages_path}
               type="text"
-              name="lastname"
-              id="lastname"
-              placeholder="Smith"
+              name="pages_path"
+              id="pages_path"
+              placeholder="Insert Pages Path"
             />
-          </FormGroup>
-          <FormGroup>
-            <Label for="age">{t`Age`}</Label>
+            <Label for="layout_path">{t`Layout Path`}</Label>
             <Input
               required
               onChange={this.onChange}
-              value={this.state.age}
-              type="number"
-              name="age"
-              id="age"
-              placeholder="18"
-              min="1"
+              value={this.state.layout_path}
+              type="text"
+              name="layout_path"
+              id="layout_path"
+              placeholder="Insert Layout Path"
             />
-          </FormGroup>
+            <Label for="laucher_path">{t`Laucher Path`}</Label>
+            <Input
+              required
+              onChange={this.onChange}
+              value={this.state.laucher_path}
+              type="text"
+              name="pages_path"
+              id="pages_path"
+              placeholder="Insert Laucher Path"
+            />
+            <Label for="events">{t`Events Path`}</Label>
+            <Input
+              required
+              onChange={this.onChange}
+              value={this.state.events_path}
+              type="text"
+              name="events_path"
+              id="events_path"
+              placeholder="Insert Events Path"
+            />
+            <FormGroup name = "platform">
+            <Label for="epg">{t`epg`}</Label>
+            <Input
+              required
+              onChange={this.onChange}
+              value={this.state.epg}
+              type="text"
+              name="epg"
+              id="epg"
+              placeholder="Insert epg"
+            />
+            <Label for="vod">{t`Vod`}</Label>
+            <Input
+              required
+              onChange={this.onChange}
+              value={this.state.vod}
+              type="text"
+              name="vod"
+              id="vod"
+              placeholder="Insert Vod"
+            />
+            <Label for="linearAdv">{t`linearAdv`}</Label>
+            <Input
+              required
+              onChange={this.onChange}
+              value={this.state.linearAdv}
+              type="text"
+              name="linearAdv"
+              id="linearAdv"
+              placeholder="Insert LinearAdv"
+            />
+            <Label for="videoAdv">{t`VideoAdv`}</Label>
+            <Input
+              required
+              onChange={this.onChange}
+              value={this.state.videoAdv}
+              type="text"
+              name="videoAdv"
+              id="videoAdv"
+              placeholder="Insert VideoAdv"
+            />
+
+            </FormGroup>
+           </FormGroup>
           <Button>{t`Submit`}</Button>
         </Form>
       </Container>
