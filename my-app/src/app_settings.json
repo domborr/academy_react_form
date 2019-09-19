@@ -1,0 +1,50 @@
+{
+    "base_url": "https://sdp-cms-lab.finconsgroup.com/web/sites/default/files/",
+    "pages_path": "cdn/page_master/",
+    "layout_path": "cdn/page_layout/",
+    "laucher_path": "cdn/launcher/",
+    "events_path": "cdn/events_settings/",
+    "platform": {
+        "epg": "https://sdp-serverless-lab.finconsgroup.com/epg/",
+        "vod": "https://sdp-serverless-lab.finconsgroup.com/vod/cards/",
+        "linearADV": "https://servedbyadbutler.com/adserve/;ID=177161;size=300x250;setID={{campaignId}};type=json;click=CLICK_MACRO_PLACEHOLDER",
+        "videoADV": "https://servedbyadbutler.com/vast.spark?setID=7697&ID=177161&pid=72898"
+    },
+    "hbbtv_configuration": {
+        "broadcastVideoElement": "video",
+        "carouselID": 111,
+        "streamEventObject": "MDS_ENABLER_ADV"
+    },
+    "defaults":{
+        "lancher":"launcher_1",
+        "events":"all"
+    },
+    "advertising_configuration": {
+        "linearAdvEnabled": true,
+        "videoAdvEnabled": true,
+        "preroll":true,
+        "midroll":true,
+        "postroll":true,
+        "linearAdvApplication": "sdp://162/177",
+        "linearAdvDemoConfig": {
+            "cornerBanner": {
+                "campaignId": 379298,
+                "streamEvent": "{\"name\":\"LOAD\",\"status\":\"trigger\",\"text\":\"strid:P0018605322;channel:R4;type:ADSUBST\"}"
+            },
+            "lshapeBanner": {
+                "campaignId": 379288,
+                "streamEvent": "{\"name\":\"LOAD\",\"status\":\"trigger\",\"text\":\"strid:P0018605320;channel:R4;type:ADSUBST\"}"
+            },
+            "stripeBanner": {
+                "campaignId": 379299,
+                "streamEvent": "{\"name\":\"LOAD\",\"status\":\"trigger\",\"text\":\"strid:P0018605321;channel:R4;type:ADSUBST\"}"
+            }
+        }
+    },
+    "launchers":[],
+    "events":[],
+    "deviceEvents":[],
+    "playerFallback": [
+        "Samsung"
+    ]
+}
