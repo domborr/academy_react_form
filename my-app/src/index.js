@@ -4,10 +4,10 @@ import './index.css';
 //import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
-import UserForm from './Form/UserForm';
+import InsertForm from './Form/InsertForm';
 import './i18nInit';
 
-ReactDOM.render(<UserForm />, document.getElementById('root'));
+ReactDOM.render(<InsertForm />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
