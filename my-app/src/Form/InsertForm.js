@@ -161,7 +161,7 @@ export default class InsertForm extends React.Component {
                   <Col>
                     <FormGroup>
                       <Label for="linearAdvEnabled" check>
-                        <Input type="checkbox" required onChange={this.onCheckboxChange} name="linearAdvEnabled"
+                        <Input type="checkbox" onChange={this.onCheckboxChange} name="linearAdvEnabled"
                           checked={this.state.linearAdvEnabled} id="linearAdvEnabled" />{' '}
                         linearAdvEnabled
                 </Label>
@@ -170,7 +170,7 @@ export default class InsertForm extends React.Component {
                   <Col>
                     <FormGroup>
                       <Label for="videoAdvEnabled" check>
-                        <Input type="checkbox" required onChange={this.onCheckboxChange} name="videoAdvEnabled"
+                        <Input type="checkbox" onChange={this.onCheckboxChange} name="videoAdvEnabled"
                           checked={this.state.videoAdvEnabled} id="videoAdvEnabled" />{' '}
                         videoAdvEnabled
                 </Label>
@@ -179,7 +179,7 @@ export default class InsertForm extends React.Component {
                   <Col>
                     <FormGroup>
                       <Label for="preroll" check>
-                        <Input type="checkbox" required onChange={this.onCheckboxChange} name="preroll"
+                        <Input type="checkbox" onChange={this.onCheckboxChange} name="preroll"
                           checked={this.state.preroll} id="preroll" />{' '}
                         preroll
                 </Label>
@@ -188,7 +188,7 @@ export default class InsertForm extends React.Component {
                   <Col>
                     <FormGroup>
                       <Label for="midroll" check>
-                        <Input type="checkbox" required onChange={this.onCheckboxChange} name="midroll"
+                        <Input type="checkbox" onChange={this.onCheckboxChange} name="midroll"
                           checked={this.state.midroll} id="midroll" />{' '}
                         midroll
                 </Label>
@@ -197,7 +197,7 @@ export default class InsertForm extends React.Component {
                   <Col>
                     <FormGroup>
                       <Label for="postroll" check>
-                        <Input type="checkbox" required onChange={this.onCheckboxChange} name="postroll"
+                        <Input type="checkbox" onChange={this.onCheckboxChange} name="postroll"
                           checked={this.state.postroll} id="postroll" />{' '}
                         postroll
                 </Label>
@@ -248,7 +248,7 @@ export default class InsertForm extends React.Component {
               </FormGroup>
             </FormGroup>
           </FormGroup>
-          <Button> Submit </Button>
+          <Button style = {{padding:"2% 10%", margin:"2%", borderRadius:"10px"}}> <strong> SUBMIT </strong></Button>
         </Form>
       </Container>
     );

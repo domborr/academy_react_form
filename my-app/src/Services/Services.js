@@ -1,6 +1,6 @@
 export default class Services {
      exportToJson(objectData) {
-        let filename = "user.json";
+        let filename = "AppSettings.json";
         let contentType = "application/json;charset=utf-8;";
         if (window.navigator && window.navigator.msSaveOrOpenBlob) {
           var blob = new Blob([decodeURIComponent(encodeURI(JSON.stringify(objectData)))], { type: contentType });
