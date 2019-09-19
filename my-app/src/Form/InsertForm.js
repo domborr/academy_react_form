@@ -3,13 +3,19 @@ import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { User } from "../Models/User";
 import Services from "../Services/Services";
 import { t } from 'ttag'
+import AppSettingsModel, { Banner, AppSettings } from "../Models/AppSettingsModel"
 //import LocalizedStrings from "react-localization";
 
 export default class InsertForm extends React.Component {
   state = {
-    name: "",
-    lastname: "",
-    age: ""
+    base_url:"",pages_path:"",layout_path:"",events_path:"",
+    epg:"",vod:"",linearAdv:"",videoAdv:"",
+    broadcastVideoElement:"",carouselId:"",streamEventObject:"",
+    lancher:"",events:"",
+    linearAdvEnabled:false,videoAdvEnabled:false,preroll:false,midroll:false,postroll:false,linearAdvApplication:"",
+    cornerBannerCampaignId:"",cornerBannerStreamEvent:"",
+    lsShapeBannerCampaignId:"",lsShapeBannerStreamEvent:"",
+    stripeBannerCampaignId:"",stripeBannerStreamEvent:"",
   };
 
   // strings = new LocalizedStrings({
