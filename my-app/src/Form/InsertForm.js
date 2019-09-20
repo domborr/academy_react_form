@@ -1,16 +1,11 @@
 import React from "react";
-import { CustomInput, Container, Button, Form, FormGroup, Label, Input, Row, Col } from "reactstrap";
-import { User } from "../Models/User";
 import Services from "../Services/Services";
-import { t } from 'ttag'
-import AppSettingsModel, { Banner, AppSettings } from "../Models/AppSettingsModel"
-import FormGenerator from "./FormGenerator";
 import FormGeneratorCustom from "./FormGenerator";
 //import LocalizedStrings from "react-localization";
 
 export default class InsertForm extends React.Component {
   state = {
-    base_url: "", pages_path: "", layout_path: "", events_path: "", laucher_path: "", events_path: "",
+    base_url: "", pages_path: "", layout_path: "", events_path: "", laucher_path: "",
     epg: "", vod: "", linearAdv: "", videoADV: "",
     broadcastVideoElement: "", carouselID: "", streamEventObject: "",
     linearAdvEnabled: false, videoAdvEnabled: false, preroll: false, midroll: false, postroll: false, linearAdvApplication: "",
@@ -45,7 +40,7 @@ export default class InsertForm extends React.Component {
 
   render() {
     return (
-      FormGeneratorCustom()
+      <FormGeneratorCustom />
     )
 }
 }

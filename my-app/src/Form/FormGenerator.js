@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
 import Services from "../Services/Services";
 import Form from "react-jsonschema-form";
 
-export default function FormGeneratorCustom( ) {
-let service = new Services();
+export default class FormGeneratorCustom extends Component{
+service = new Services();
 
-const schemaBase = {
+schemaBase = {
   title: "App Settings",
   type: "object",
   required: ["base_url"],
@@ -105,16 +104,18 @@ const schemaBase = {
 //   console.log(appsettingsmodel);
 //   this.service.exportToJson(JSON.stringify(appsettingsmodel));
 // };
-const log = (type) => console.log.bind(console, type);
-const onSubmit= ({formData,e})=>{
+log = (type) => console.log.bind(console, type);
+onSubmit= ({formData,e})=>{
   
-  service.exportToJson(JSON.stringify(formData))};
+  this.service.exportToJson(JSON.stringify(formData))};
 
-return (
-  <Form schema={schemaBase}
+render () {
+  return (
+    <Form schema={this.schemaBase}
+    
+    onSubmit={this.onSubmit}
+    onError={this.log("errors")} />
+    )
+  } 
+}
   
-        onSubmit={onSubmit}
-        onError={log("errors")} />
-  )
-} 
-
