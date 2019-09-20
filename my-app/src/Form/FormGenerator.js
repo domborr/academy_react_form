@@ -2,120 +2,134 @@ import React, { Component } from "react";
 import Services from "../Services/Services";
 import Form from "react-jsonschema-form";
 
-export default class FormGeneratorCustom extends Component{
-service = new Services();
+export default class FormGeneratorCustom extends Component {
+  service = new Services();
 
-schemaBase = {
-  title: "App Settings",
-  type: "object",
-  required: ["base_url"],
-  properties: {
-    base_url: {type: "string", title: "Base_url", default: "Base URL"},
-    pages_path: {type: "string", title: "Pages_Path", default: "Pages Path"},
-    layout_path: {type: "string", title: "Layout_Path", default: "Layout Path"},
-    events_path: {type: "string", title: "Events_Path", default: "Events Path"},
-    laucher_path: {type: "string", title: "Laucher_Path", default: "Laucher Path"},
-    platform:{
-      title:"Platform",
-      type:"object",
-      required:[],
-      properties:{
-        epg: {type: "string", title: "epg", default: "Epg"},
-        vod: {type: "string", title: "vod", default: "vod"},
-        linearADV: {type: "string", title: "linearADV", default: "linearADV"},
-        videoADV: {type: "string", title: "videoADV", default: "videoADV"},
-      }
-    },
-    hbbtv_configuration:{
-      title:"Hbbtv Configuration",
-      type: "object",
-      required:[],
-      properties:{
-        broadcastVideoElement: {type: "string", title: "broadcastVideoElement", default: "broadcastVideoElement"},
-        carouselID: {type: "number", title: "carouselID", default: "carouselID"},
-        streamEventObject: {type: "string", title: "streamEventObject", default: "streamEventObject"},
-      }
-    },
-    defaults:{
-      title: "Defaults",
-      type:"object",
-      required: [],
-      properties:{
-        lancher: {type: "string", title: "lancher", default: "lancher"},
-        events: {type: "string", title: "events", default: "events"}
-      }
-    },
-    advertisingConfigurationSchema:{
-      title: "Advertising Configuration",
-      type:"object",
-      required:[],
-      properties:{
-      linearAdvEnabled: {type: "boolean", title: "LinearADVEnabled", default: false},
-      videoAdvEnabled: {type: "boolean", title: "VideoAdvEnabled", default: false},
-      preroll: {type: "boolean", title: "preroll", default: false},
-      midroll: {type: "boolean", title: "midroll", default: false},
-      postroll: {type: "boolean", title: "postroll", default: false},
-      linearAdvApplication: {type: "string", title: "linearAdvApplication", default: "linearAdvApplication"},
-      linearAdvDemoConfig:{
-        title:"Linear Adv Demo Config",
-        type:"object",
-        required:[],
-        properties:{
-          cornerBanner:{
-            title:"Corner Banner",
+  schemaBase = {
+    title: "App Settings",
+    type: "object",
+    required: ["base_url", "pages_path", "layout_path", "events_path", "laucher_path"],
+    properties: {
+      base_url: { type: "string", title: "Base url" },
+      pages_path: { type: "string", title: "Pages Path" },
+      layout_path: { type: "string", title: "Layout Path" },
+      events_path: { type: "string", title: "Events Path" },
+      laucher_path: { type: "string", title: "Launcher Path" },
+      platform: {
+        title: "Platform",
+        type: "object",
+        required: ["epg", "vod", "linearADV", "videoADV"],
+        properties: {
+          epg: { type: "string", title: "Epg" },
+          vod: { type: "string", title: "Vod" },
+          linearADV: { type: "string", title: "Linear ADV" },
+          videoADV: { type: "string", title: "Video ADV" },
+        }
+      },
+      hbbtv_configuration: {
+        title: "Hbbtv Configuration",
+        type: "object",
+        required: ["broadcastVideoElement", "carouselID", "streamEventObject"],
+        properties: {
+          broadcastVideoElement: { type: "string", title: "Broadcast Video Element" },
+          carouselID: { type: "number", title: "Carousel ID" },
+          streamEventObject: { type: "string", title: "Stream Event Object" },
+        }
+      },
+      defaults: {
+        title: "Defaults",
+        type: "object",
+        required: ["lancher", "events"],
+        properties: {
+          lancher: { type: "string", title: "Launcher" },
+          events: { type: "string", title: "Events" }
+        }
+      },
+      advertisingConfigurationSchema: {
+        title: "Advertising Configuration",
+        type: "object",
+        required: ["linearAdvEnabled", "videoAdvEnabled", "preroll", "midroll", "postroll",
+          "linearAdvApplication"],
+        properties: {
+          linearAdvEnabled: { type: "boolean", title: "Linear ADV Enabled", default: false },
+          videoAdvEnabled: { type: "boolean", title: "Video Adv Enabled", default: false },
+          preroll: { type: "boolean", title: "Preroll", default: false },
+          midroll: { type: "boolean", title: "Midroll", default: false },
+          postroll: { type: "boolean", title: "Postroll", default: false },
+          linearAdvApplication: { type: "string", title: "Linear Adv Application" },
+          linearAdvDemoConfig: {
+            title: "Linear Adv Demo Config",
             type: "object",
-            required:[],
-            properties:{
-              campaignId: {type: "string", title: "campaignId", default: "campaignId"},
-              streamEvent: {type: "string", title: "streamEvent", default: "streamEvent"}
-            }
+            required: [],
+            properties: {
+              cornerBanner: {
+                title: "Corner Banner",
+                type: "object",
+                required: ["campaignId", "streamEvent"],
+                properties: {
+                  campaignId: { type: "number", title: "Campaign Id" },
+                  streamEvent: { type: "string", title: "Stream Event" }
+                }
 
-          },
-          lsShapeBanner:{
-            title:"Ls Shape Banner",
-            type: "object",
-            required:[],
-            properties:{
-              campaignId: {type: "string", title: "campaignId", default: "campaignId"},
-              streamEvent: {type: "string", title: "streamEvent", default: "streamEvent"}
-            }
+              },
+              lsShapeBanner: {
+                title: "Ls Shape Banner",
+                type: "object",
+                required: ["campaignId", "streamEvent"],
+                properties: {
+                  campaignId: { type: "number", title: "Campaign Id" },
+                  streamEvent: { type: "string", title: "Stream Event" }
+                }
 
-          },
-          stripeBanner:{
-            title:"Stripe Banner",
-            type: "object",
-            required:[],
-            properties:{
-              campaignId: {type: "string", title: "campaignId", default: "campaignId"},
-              streamEvent: {type: "string", title: "streamEvent", default: "streamEvent"}
+              },
+              stripeBanner: {
+                title: "Stripe Banner",
+                type: "object",
+                required: ["campaignId", "streamEvent"],
+                properties: {
+                  campaignId: { type: "number", title: "Campaign Id" },
+                  streamEvent: { type: "string", title: "Stream Event" }
+                }
+              }
             }
-
           }
-
+        }
+      },
+      not_mandatory: {
+        title: "",
+        type: "object",
+        required: [],
+        properties: {
+          launchers: { type: "string", title: "Launchers" },
+          events: { type: "string", title: "Events" },
+          deviceEvents: { type: "string", title: "Device Events" },
+          playerFallback: { type: "string", title: "Player Fallback" }
         }
       }
-    }}
+    }
   }
-    
-};
-// onSubmit = event => {
-//   event.preventDefault();
-//   let appsettingsmodel = this.state;
-//   console.log(appsettingsmodel);
-//   this.service.exportToJson(JSON.stringify(appsettingsmodel));
-// };
-log = (type) => console.log.bind(console, type);
-onSubmit= ({formData,e})=>{
-  
-  this.service.exportToJson(JSON.stringify(formData))};
 
-render () {
-  return (
-    <Form schema={this.schemaBase}
-    
-    onSubmit={this.onSubmit}
-    onError={this.log("errors")} />
+
+  // onSubmit = event => {
+  //   event.preventDefault();
+  //   let appsettingsmodel = this.state;
+  //   console.log(appsettingsmodel);
+  //   this.service.exportToJson(JSON.stringify(appsettingsmodel));
+  // };
+  log = (type) => console.log.bind(console, type);
+  onSubmit = ({ formData, e }) => {
+
+    this.service.exportToJson(JSON.stringify(formData))
+  };
+
+  render() {
+    return (
+      <Form schema={this.schemaBase}
+
+        onSubmit={this.onSubmit}
+      //onError={this.log("errors")} 
+      />
     )
-  } 
-}
-  
+  }
+};
+
